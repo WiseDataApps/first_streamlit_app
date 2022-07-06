@@ -42,6 +42,8 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # write your own comment - this is a streamlit method that renders a dataframe as a table in a webpage.
 streamlit.dataframe(fruityvice_normalized)
 
+
+
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")

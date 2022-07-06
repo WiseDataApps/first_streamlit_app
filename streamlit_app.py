@@ -32,12 +32,12 @@ try:
  fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
  if not fruit_choice:
   streamlit.error('Please select a fruit to get information.')
-  else:
-   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+ else:
+  fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
    # write your own comment - this usese a pandas method to normalize the json response from the api
-   fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+  fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
    # write your own comment - this is a streamlit method that renders a dataframe as a table in a webpage.
-   streamlit.dataframe(fruityvice_normalized)
+  streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
  streamlit.error()
    
